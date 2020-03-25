@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Proof of Concept</title>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script src="https://static.matterport.com/showcase-sdk/2.0.1-0-g64e7e88/sdk.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h3 style="align-self: center;">Space SID:</h3>
+            <input type="text" class="sid_selector" maxlength="11"></input>
+            <div class="showcase_container">
+                <iframe class="showcase" width="860" height="500" frameborder="0" allowfullscreen></iframe>
+                <div class="showcase_overlay"></div>
+            </div>
+
+            <div class="button_container">
+                <button class="import_tags">Import tags</button>
+                <button class ="remove_tags">Remove all tags</button>
+                <button class="add_tag">Place New Tag</button>
+                <button class="export_tags">Export tags</button>
+            </div>
+
+            <div class="tag_container">
+                <table class="scrollable">
+                    <thead>
+                        <tr>
+                            <th>Label</th>
+                            <th>Description</th>
+                            <th>Color</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </body>
+    <script src="app.js" type="text/javascript"></script>
+</html>
