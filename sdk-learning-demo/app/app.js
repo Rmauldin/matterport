@@ -24,6 +24,7 @@ function createQuestionElement(question){
     // Create question container
     let questionElement = document.createElement("div");
     questionElement.setAttribute('class', 'question');
+    questionElement.classList.add("unselected");
 
     // Create title
     let title = document.createElement("h3");
@@ -90,6 +91,15 @@ function updateTagDescription(tag, newDescription, mpSdk){
 }
 
 function giveQuestionListeners(question, questionElement, mpSdk){
+
+    questionElement.addEventListener('click', e => {
+        let q = document.querySelector('.selected');
+        if(q){
+            q.classList.replace('selected', 'unselected');
+        }
+        questionElement.classList.replace('unselected', 'selected');
+    });
+
     let choices = questionElement.querySelectorAll('.choice');
 
     choices.forEach(li => {
