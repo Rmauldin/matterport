@@ -70,7 +70,9 @@ function loadedShowcaseHandler(mpSdk){
         updateNearbyTags(newSweep);
     });
 
-    mpSdk.on(mpSdk.Mattertag.Event.CLICK, sid => {
+    mpSdk.on(mpSdk.Mattertag.Event.HOVER, (sid, hovering) => {
+        let existing_overlay = document.querySelector('.popup-overlay');
+        if(existing_overlay) existing_overlay.remove();
         popupQuestion(sid);
     });
 
