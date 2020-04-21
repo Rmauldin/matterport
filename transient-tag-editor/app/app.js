@@ -1,7 +1,7 @@
 'use strict;'
 
 const key = "fe2587b5509f46949a166ee38ec362b6";
-var params = "&help=0&hl=2&play=1&qs=1";
+var params = "&help=0&hl=0&play=1&qs=1";
 var matSpace = "https://my.matterport.com/show/?m=";
 var matSid = "iL4RdJqi2yK";
 var iframe;
@@ -16,8 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     importBtn = document.querySelector('.import_tags');
     exportBtn = document.querySelector('.export_tags');
     removeBtn = document.querySelector('.remove_tags');
-    overlay = document.querySelector('.showcase_overlay');
-    sidSelector = document.querySelector('.sid_selector');
+    sidSelector = document.querySelector('#sid-input');
     table_container = document.querySelector(".scrollable");
     iframe.setAttribute('src', `${matSpace}${matSid}${params}`);
     iframe.addEventListener('load', showcaseLoader, true);
@@ -45,7 +44,6 @@ function showcaseLoader(){
 }
 
 function populateTags(tags, sort='label'){
-    // TODO: implement sorting and description link extraction
     var curTags = document.querySelectorAll('.scrollable tbody tr')
     curTags.forEach((tag) => {
         tag.remove();
@@ -104,73 +102,42 @@ function loadedShowcaseHandler(mpSdk){
     })
     .catch(console.error);
 
-    // For demo =======================
-    // var demoTags = [{"sid":"mdbCLNQre7k","label":"Sportwear Sport Pack Collection","description":"$79.99","parsedDescription":[{"type":"text","text":"$79.99"}],"mediaSrc":"","mediaType":"none","media":{"type":"none","src":""},"anchorPosition":{"x":-6.544976748299657,"y":1.2477712102247804,"z":5.535865467895027},"anchorNormal":{"x":0,"y":1,"z":0},"color":{"r":1,"g":0,"b":0},"enabled":true,"floorIndex":1,"stemVector":{"x":0,"y":0.2,"z":0},"stemVisible":true},{"sid":"oYgirbi6bd9","label":"Dri-Fit Studio Tank","description":"$44.99","parsedDescription":[{"type":"text","text":"$44.99"}],"mediaSrc":"","mediaType":"none","media":{"type":"none","src":""},"anchorPosition":{"x":-6.601153512205248,"y":5.807148124517412,"z":17.37511776219953},"anchorNormal":{"x":0,"y":1,"z":0},"color":{"r":1,"g":0,"b":0},"enabled":true,"floorIndex":1,"stemVector":{"x":0,"y":0.2,"z":0},"stemVisible":true},{"sid":"ImRDywN7y72","label":"Miler Tank Hybrid","description":"$39.99","parsedDescription":[{"type":"text","text":"$39.99"}],"mediaSrc":"","mediaType":"none","media":{"type":"none","src":""},"anchorPosition":{"x":-6.6296264334612935,"y":6.199278694984552,"z":21.177519948964555},"anchorNormal":{"x":0,"y":1,"z":0},"color":{"r":1,"g":0,"b":0},"enabled":true,"floorIndex":1,"stemVector":{"x":0,"y":0.2,"z":0},"stemVisible":true},{"sid":"NsjuXOWkkFt","label":"Air Jordans","description":"$119.99","parsedDescription":[{"type":"text","text":"$119.99"}],"mediaSrc":"","mediaType":"none","media":{"type":"none","src":""},"anchorPosition":{"x":-6.796979390771295,"y":-2.4226375721398377,"z":17.60085984720765},"anchorNormal":{"x":0,"y":1,"z":0},"color":{"r":1,"g":0,"b":0},"enabled":true,"floorIndex":0,"stemVector":{"x":0,"y":0.2,"z":0},"stemVisible":true},{"sid":"KIgr3qqf6CH","label":"Dry-Fit Breathe Camo Top","description":"$49.99","parsedDescription":[{"type":"text","text":"$49.99"}],"mediaSrc":"","mediaType":"none","media":{"type":"none","src":""},"anchorPosition":{"x":-6.481041746307972,"y":-1.8027192393781701,"z":11.623058721224254},"anchorNormal":{"x":0,"y":1,"z":0},"color":{"r":1,"g":0,"b":0},"enabled":true,"floorIndex":0,"stemVector":{"x":0,"y":0.2,"z":0},"stemVisible":true},{"sid":"v2IeKX3mqRF","label":"Young Athlete Shoes","description":"$79.99","parsedDescription":[{"type":"text","text":"$79.99"}],"mediaSrc":"","mediaType":"none","media":{"type":"none","src":""},"anchorPosition":{"x":2.3517083397243703,"y":-3.4143103143645686,"z":-1.2565219983590263},"anchorNormal":{"x":0,"y":1,"z":0},"color":{"r":1,"g":0,"b":0},"enabled":true,"floorIndex":0,"stemVector":{"x":0,"y":0.2,"z":0},"stemVisible":true},{"sid":"ButSIos02RM","label":"Phenom Pants","description":"$89.99","parsedDescription":[{"type":"text","text":"$89.99"}],"mediaSrc":"","mediaType":"none","media":{"type":"none","src":""},"anchorPosition":{"x":-6.599833407729863,"y":1.1236514258572265,"z":18.646373663953135},"anchorNormal":{"x":0,"y":1,"z":0},"color":{"r":1,"g":0,"b":0},"enabled":true,"floorIndex":1,"stemVector":{"x":0,"y":0.2,"z":0},"stemVisible":true},{"sid":"WbgFT5FROxI","label":"Dri-Fit Squad Pant","description":"$99.99","parsedDescription":[{"type":"text","text":"$99.99"}],"mediaSrc":"","mediaType":"none","media":{"type":"none","src":""},"anchorPosition":{"x":-6.566484982894435,"y":-2.1350717353686455,"z":8.50362124874894},"anchorNormal":{"x":0,"y":1,"z":0},"color":{"r":1,"g":0,"b":0},"enabled":true,"floorIndex":0,"stemVector":{"x":0,"y":0.2,"z":0},"stemVisible":true}] 
-    
-    // replaceShowcaseTags(demoTags)
-    // .then((newTags) => {
-    //     populateTags(newTags);
-    //     setupTagFunctionality();
-    // })
-    // .catch(console.error);
-    // =====================
+    function placeTag(){
+        if(tag) mpSdk.Mattertag.navigateToTag(tag, mpSdk.Mattertag.Transition.INSTANT);
+        tag = null;
+        movingTag = false;
+    }
 
-    overlay.addEventListener('mousemove', (e) => {
-        // console.log(`x: ${e.clientX} y: ${e.clientY}`);
+    var eventListener = window.addEventListener('blur', function() {
+        if (document.activeElement === iframe) {
+            placeTag(); //function you want to call on click
+            setTimeout(function(){ window.focus(); }, 0);
+        }
+        window.removeEventListener('blur', eventListener );
+    });
+
+    mpSdk.Pointer.intersection.subscribe(intersectionData => {
         if(tag && !movingTag){
-            movingTag = true;
-            mpSdk.Renderer.getWorldPositionData({x: e.offsetX, y: e.offsetY})
-            .then((worldData) => {
-                if(!worldData.position){
-                    return mpSdk.Renderer.getWorldPositionData({x: e.offsetX, y: e.offsetY});
-                }
-                return worldData;
-            })
-            .then((worldData) => {
-                if(!worldData.position){
-                    return mpSdk.Renderer.getWorldPositionData({x: e.offsetX, y: e.offsetY});
-                }
-                return worldData;
-            })
-            .then((worldData) => {
-                if(!worldData.position){
-                    return mpSdk.Renderer.getWorldPositionData({x: e.offsetX, y: e.offsetY});
-                }
-                return worldData;
-            })
-            .then((worldData) => {
-                if(!worldData.position){
-                    return mpSdk.Renderer.getWorldPositionData({x: e.offsetX, y: e.offsetY}, .2);
-                }
-                return worldData;
-            })
-            .then( worldData => {
-                if(!worldData.position){
-                    worldData.position = {x: 0, y: 0, z: 0}
-                }
-                return mpSdk.Mattertag.editPosition(tag, {
-                    anchorPosition: worldData.position,
-                    stemVector: {x: 0, y: 0.2, z: 0}
+            if(intersectionData.object === 'intersectedobject.model' || intersectionData.object === 'intersectedobject.sweep'){
+                let scale = .33;
+                mpSdk.Mattertag.editPosition(tag, {
+                    anchorPosition: intersectionData.position,
+                    stemVector: {
+                        x: scale * intersectionData.normal.x,
+                        y: scale * intersectionData.normal.y,
+                        z: scale * intersectionData.normal.z,
+                    }
+                })
+                .catch(e =>{
+                    console.error(e);
+                    tag = null;
+                    movingTag = false;
                 });
-            })
-            .then( () => {
-                movingTag = false;
-            })
-            .catch((e) => {
-                console.error(e);
-                tag = null;
-                movingTag = false;
-            });
+            }
         }
     });
 
-    overlay.addEventListener('click', (e) => {
-        tag = null;
-        overlay.setAttribute('style', 'display: none;');
-    });
-
     addTagBtn.addEventListener('click', () => {
-        overlay.setAttribute('style', 'display: inherit;');
         if(!addingTag && !tag){
             addingTag = true;
             mpSdk.Mattertag.add([{
@@ -341,50 +308,6 @@ function loadedShowcaseHandler(mpSdk){
             changeInfo(change, tagId);
         });
     };
-
-    function extractColors(rgb){
-        var re = /background-color: rgb\((.*)\)/;
-        var colors = rgb.match(re);
-        colors = colors[1].split(',');
-        colors = colors.map( color => parseInt(color.trim()) );
-
-        return Object({
-            r: colors[0], 
-            g: colors[1], 
-            b: colors[2]
-        });
-    }
-
-    function configureColorSliderElement(parent, defaultColorValue){
-        var slider;
-        parent.appendChild(slider = document.createElement('input'));
-        slider.setAttribute('type', 'range');
-        slider.setAttribute('max', 255);
-        slider.setAttribute('min', 0);
-        slider.setAttribute('value', defaultColorValue);
-    }
-
-    function changeColor(block){
-        colorDiv = block.children[0];
-        var colors = extractColors(colorDiv.getAttribute('style'));
-        var picker = document.createElement('div');
-        picker.setAttribute('class', 'color_picker');
-
-        Object.values(colors).forEach(color => {
-            configureColorSliderElement(picker, color);
-        });
-        console.log(picker);
-
-        // why won't you blur?
-        picker.addEventListener('blur', () => {
-            console.warn("BLURRED");
-            newColor = document.createElement('div');
-            newColor.setAttribute('background-color', `rgb(${picker.children[0]}, ${picker.children[1]}, ${picker.children[2]})`);
-            picker.replaceWith(newColor);
-        });
-
-        colorDiv.replaceWith(picker);
-    }
 
     function addTagListeners(block){
         if(!block || block.children[0].tagName == 'TH'){ return; }
