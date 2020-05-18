@@ -2,7 +2,7 @@
 
 const key = "fe2587b5509f46949a166ee38ec362b6";
 const sid = "iL4RdJqi2yK";
-const params = "&hl=2&play=1&qs=1";
+const params = "&hr=0&play=1&qs=1";
 
 document.addEventListener("DOMContentLoaded", () => {
     let iframe = document.querySelector('.showcase');

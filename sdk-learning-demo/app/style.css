@@ -7,26 +7,30 @@
 body{
     background-color: #FFFFFF;
 }
+h3{
+    font-size: 14pt;
+}
+label{
+    font-size: 12pt;
+}
 
 .container {
-    margin: 50px;
+    margin: 15px;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     color: #222222;
+    max-height: 98vh;
 }
 
 .showcase_wrapper{
-    flex: 2;
-    position: relative;
-    padding-bottom: 45%;
-    padding-top: 35px;
-    height: 0;
+    height: 95vh;
+    width: 60vw;
     overflow: hidden;
+    box-shadow: 0 4px 8px rgb(43, 43, 43);
 }
 
 .showcase{
-    box-shadow: 0 4px 8px rgb(43, 43, 43);
-    position: absolute;
     top:0;
     left: 0;
     width: 100%;
@@ -34,12 +38,11 @@ body{
 }
 
 .questions{
-    flex: 1;
-    height: 600px;
+    height: 95vh;
+    width: 35vw;
     overflow-y: scroll;
-    margin-left: 25px;
-    margin-right: 25px;
-    /* box-shadow: 0 4px 8px rgb(43, 43, 43); */
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .selected {
@@ -96,6 +99,7 @@ body{
     border: 1px solid rgb(115, 115, 115);
     border-radius: 5px;
     padding: 5px;
+    font-size: 11pt;
 }
 
 .goto_button:hover{
