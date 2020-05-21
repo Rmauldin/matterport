@@ -1,7 +1,7 @@
 'use strict;'
 
 const key = "fe2587b5509f46949a166ee38ec362b6";
-var params = "&help=0&hl=0&play=1&qs=1";
+var params = "&help=0&play=1&qs=1&gt=0&hr=0";
 var matSpace = "https://my.matterport.com/show/?m=";
 var matSid = "iL4RdJqi2yK";
 var iframe;
