@@ -1,0 +1,26 @@
+{
+  "name": "hls-app",
+  "version": "1.0.0",
+  "description": "Livestream demo",
+  "private": true,
+  "scripts": {
+    "build": "npx webpack",
+    "run": "node app.js",
+    "start": "npx webpack && node app.js",
+    "fetch-bundle": "curl https://static.matterport.com/misc/bundle/showcase/$npm_package_config_bundle_version/showcase-bundle.zip -o bundle.zip",
+    "expand-bundle": "unzip -o bundle.zip -d ./bundle",
+    "install-bundle": "yarn fetch-bundle && yarn expand-bundle",
+    "install-all": "npm install package.json && npm install webpack@4.44.1 && npm run install-bundle"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hls.js": "^0.14.7",
+    "package.json": "^2.0.1",
+    "webpack": "^4.44.1"
+  },
+  "config" : {
+    "bundle_version" : "3.1.4.1-6-gac2d8cfea"
+  }
+}
