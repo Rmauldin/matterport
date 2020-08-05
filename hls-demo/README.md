@@ -6,7 +6,7 @@
 Install hls.js dependency, webpack, and Bundle SDK - password required
 `npm run install-all`
 
-2. Change `sdkKey` to your own SDK key in `src/index.js`
+2. Change the variable `sdkKey` to your own SDK key in `src/index.js`
 
 ## Running
 Bundle with Webpack and start the server
