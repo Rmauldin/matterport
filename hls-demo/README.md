@@ -1,1 +1,12 @@
-To run the version with Node.js, you can run the command npm run install-all​. This will install the package dependencies, Webpack for bundling, and the Bundle SDK. The Bundle SDK will require a password, which you can input gOJKDpxNiMCtdlnXs​. Once everything has been installed, you'll need to change the sdkKey variable in src/index.js to your own SDK key. You can then build and run the server with the command npm run start​.
+# Requirements
+- Node.js
+
+# Installation
+1. Run the following:
+`npm run install-all // Install hls.js dependency, webpack, and Bundle SDK - password required`
+
+2. Change `sdkKey` to your own SDK key in `src/index.js`
+
+# Running
+Bundle with Webpack and start the server
+`npm run start`
