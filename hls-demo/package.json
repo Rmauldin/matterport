@@ -20,7 +20,7 @@
     "package.json": "^2.0.1",
     "webpack": "^4.44.1"
   },
-  "config" : {
-    "bundle_version" : "3.1.4.1-6-gac2d8cfea"
+  "config": {
+    "bundle_version": "3.1.4.1-6-gac2d8cfea"
   }
 }
