@@ -2,3 +2,4 @@ hls-demo/bundle
 hls-demo/dist
 hls-demo/bundle.zip
 hls-demo/node_modules
+hls-demo/package-lock.json
