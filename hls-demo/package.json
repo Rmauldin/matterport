@@ -10,7 +10,8 @@
     "fetch-bundle": "curl https://static.matterport.com/misc/bundle/showcase/$npm_package_config_bundle_version/showcase-bundle.zip -o bundle.zip",
     "expand-bundle": "unzip -o bundle.zip -d ./bundle",
     "install-bundle": "npm run fetch-bundle && npm run expand-bundle",
-    "install-all": "npm install package.json && npm install webpack@4.44.1 && npm run install-bundle"
+    "install-all": "npm install package.json && npm install webpack@4.44.1 && npm run install-bundle",
+    "clean": "rm -r bundle.zip node_modules bundle"
   },
   "author": "",
   "license": "ISC",
