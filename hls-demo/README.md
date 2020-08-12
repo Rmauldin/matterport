@@ -1,3 +1,6 @@
+## Description
+This is a simplified version of the livestream video canvas from the [Matterport Showcase Examples](https://github.com/matterport/showcase-sdk-examples)
+
 ## Requirements
 - Node.js
 
