@@ -1,14 +1,15 @@
 'use strict;'
 
-const key = "2d4dfb9fd6414902b663c25a6c767cfa";
-var params = "&help=0&play=1&qs=1&gt=0&hr=0";
-var matSpace = "https://my.matterport.com/show/?m=";
-var matSid = "iL4RdJqi2yK";
-var iframe;
-var wrapper;
-var addTagBtn;
-var tag;
-var table_container;
+// const key = "2d4dfb9fd6414902b663c25a6c767cfa";
+const key = "fe2587b5509f46949a166ee38ec362b6";
+const params = "&help=0&play=1&qs=1&gt=0&hr=0";
+const matSpace = "https://my.matterport.com/show/?m=";
+let matSid = "iL4RdJqi2yK";
+let iframe;
+let wrapper;
+let addTagBtn;
+let tag;
+let table_container;
 
 document.addEventListener("DOMContentLoaded", () => {
     iframe = document.querySelector('.showcase');
@@ -44,7 +45,7 @@ function showcaseLoader(){
 }
 
 function populateTags(tags, sort='label'){
-    var curTags = document.querySelectorAll('.scrollable tbody tr')
+    const curTags = document.querySelectorAll('.scrollable tbody tr')
     curTags.forEach((tag) => {
         tag.remove();
     });
@@ -52,8 +53,8 @@ function populateTags(tags, sort='label'){
 }
 
 function addToTable(tag){
-    var elem;
-    var row;
+    let elem;
+    let row;
     if(table_container && table_container.children[0] && table_container.children[0].tagName == 'THEAD'){
         table_container = table_container.appendChild(document.createElement('TBODY'));
     }
@@ -91,8 +92,8 @@ function addToTable(tag){
 }
 
 function loadedShowcaseHandler(mpSdk){
-    var addingTag = false;
-    var movingTag = false;
+    let addingTag = false;
+    let movingTag = false;
     // Fetch tags
     mpSdk.Mattertag.getData()
     .then( (tags) => {
@@ -108,7 +109,7 @@ function loadedShowcaseHandler(mpSdk){
         movingTag = false;
     }
 
-    var eventListener = window.addEventListener('blur', function() {
+    const eventListener = window.addEventListener('blur', function() {
         if (document.activeElement === iframe) {
             placeTag(); //function you want to call on click
             setTimeout(function(){ window.focus(); }, 0);
@@ -152,8 +153,8 @@ function loadedShowcaseHandler(mpSdk){
                 return mpSdk.Mattertag.getData()
             })
             .then( (collection) => {
-                var t_sid = collection.find( elem => elem.sid === tag);
-                var row = addToTable(t_sid);
+                const t_sid = collection.find( elem => elem.sid === tag);
+                const row = addToTable(t_sid);
                 addTagListeners(row);
                 addingTag = false;
             })
@@ -183,9 +184,9 @@ function loadedShowcaseHandler(mpSdk){
     }
 
     importBtn.addEventListener('click', () => {
-        var input = document.createElement('input');
+        const input = document.createElement('input');
         input.type = 'file';
-        var file;
+        let file;
         input.onchange = e => {
             file = e.target.files[0];
             importFile(file);
@@ -199,11 +200,11 @@ function loadedShowcaseHandler(mpSdk){
 
     function importFile(file){
         if(file.type === "application/json"){
-            var reader = new FileReader();
+            const reader = new FileReader();
             reader.readAsText(file);
 
             reader.addEventListener('load', e => {
-                var content = e.target.result;
+                const content = e.target.result;
                 tags = JSON.parse(content);
                 replaceShowcaseTags(tags)
                 .then((newTags) => {
@@ -220,11 +221,11 @@ function loadedShowcaseHandler(mpSdk){
     // from https://stackoverflow.com/questions/13405129/javascript-create-and-save-file
     // Function to download data to a file
     function download(data, filename, type) {
-        var file = new Blob([data], {type: type});
+        const file = new Blob([data], {type: type});
         if (window.navigator.msSaveOrOpenBlob) // IE10+
             window.navigator.msSaveOrOpenBlob(file, filename);
         else { // Others
-            var a = document.createElement("a"),
+            const a = document.createElement("a"),
                     url = URL.createObjectURL(file);
             a.href = url;
             a.download = filename;
@@ -255,8 +256,8 @@ function loadedShowcaseHandler(mpSdk){
 
     function exportTags(tags){
         if(!tags || tags.length == 0){return;} // TODO: Let the user know there are no tags
-        var filename = 'tags.json';
-        var tagsText = JSON.stringify(tags);
+        const filename = 'tags.json';
+        const tagsText = JSON.stringify(tags);
         download(tagsText, filename, "application/json");
     }
 
@@ -268,7 +269,7 @@ function loadedShowcaseHandler(mpSdk){
     function updateTag(matTagId, label=null, description=null){
         if(!label && !description) return;
 
-        var props = new Object();
+        const props = new Object();
         label ? props['label'] = label : {};
         description ? props['description'] = description : {};
 
@@ -278,8 +279,8 @@ function loadedShowcaseHandler(mpSdk){
 
     function changeInfo(ele, tagId){
         if(ele.tagName === 'TH'){ return; }
-        var desc = ele.innerText;
-        var change = document.createElement('input');
+        const desc = ele.innerText;
+        const change = document.createElement('input');
         change.id = tagId;
         change.value = desc;
         ele.replaceWith(change);
@@ -295,14 +296,13 @@ function loadedShowcaseHandler(mpSdk){
     }
 
     function clickAway(ele, tagId) {
-        var desc = ele.value;
-        var change = document.createElement('td');
+        const change = document.createElement('td');
         change.id = tagId;
-        change.innerText = desc;
+        change.innerText = ele.value;
         ele.replaceWith(change);
         change.removeEventListener('blur', clickAway);
-        var lbl = tagId === 'label' ? desc : null;
-        var desc = tagId === 'description' ? desc : null;
+        const lbl = tagId === 'label' ? desc : null;
+        const desc = tagId === 'description' ? desc : null;
         updateTag(change.parentElement.id, label=lbl, description=desc);
         change.addEventListener('click', () =>{
             changeInfo(change, tagId);
