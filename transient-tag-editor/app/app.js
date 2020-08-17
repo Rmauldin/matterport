@@ -172,6 +172,9 @@ function loadedShowcaseHandler(mpSdk){
             return mpSdk.Mattertag.remove(oldTagSids);
         })
         .then( () => {
+            tags.forEach(tag => {
+                tag.media.type = "mattertag.media." + tag.media.type
+            });
             return mpSdk.Mattertag.add(tags);
         })
         .then(newSids => {
