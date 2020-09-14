@@ -136,7 +136,7 @@ async function loadQuestions(mpSdk){
     let questionsEle = document.querySelector('.questions');
 
     // Can also load questions from file or database
-    let res = await fetch('assets/questions.json');
+    const res = await fetch('assets/questions.json');
     const questions = await res.json();
     
     questions.forEach(question => {

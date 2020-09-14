@@ -47,10 +47,10 @@ function removeElementsInside(ele){
     }
 }
 
-function loadedShowcaseHandler(mpSdk){
+async function loadedShowcaseHandler(mpSdk){
     // Initial setup
     removeAllTags();
-    let questions = loadQuestions();
+    let questions = await loadQuestions();
     let sweeps = getModelSweeps()
     let mattertags = questions.map(question => question.tag);
     let sortFunc = (a, b) => a.distance - b.distance;
@@ -294,7 +294,7 @@ function loadedShowcaseHandler(mpSdk){
 
     async function loadQuestions(){
         // Can also load questions from file or database
-        let res = await fetch('assets/questions.json');
+        const res = await fetch('assets/questions.json');
         const questions = await res.json();
 
         questions.forEach(question => {
