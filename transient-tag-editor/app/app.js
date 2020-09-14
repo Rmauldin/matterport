@@ -299,13 +299,14 @@ function loadedShowcaseHandler(mpSdk){
     }
 
     function clickAway(ele, tagId) {
+        let desc = ele.value;
         const change = document.createElement('td');
         change.id = tagId;
         change.innerText = ele.value;
         ele.replaceWith(change);
         change.removeEventListener('blur', clickAway);
         const lbl = tagId === 'label' ? desc : null;
-        const desc = tagId === 'description' ? desc : null;
+        desc = tagId === 'description' ? desc : null;
         updateTag(change.parentElement.id, label=lbl, description=desc);
         change.addEventListener('click', () =>{
             changeInfo(change, tagId);
