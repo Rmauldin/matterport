@@ -292,7 +292,7 @@ function loadedShowcaseHandler(mpSdk){
         .catch(console.error);
     }
 
-    function loadQuestions(){
+    async function loadQuestions(){
         // Can also load questions from file or database
         let res = await fetch('assets/questions.json');
         const questions = await res.json();
