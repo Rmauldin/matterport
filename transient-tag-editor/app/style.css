@@ -168,3 +168,9 @@ button:hover{
     min-width: min-content;
     min-height: min-content;
 }
+
+#warning{
+    margin: 10px;
+    font-style: italic;
+    color: rgb(80, 3, 3);
+}

@@ -5,7 +5,6 @@ const params = "&help=0&play=1&qs=1&gt=0&hr=0";
 const matSpace = "https://my.matterport.com/show/?m=";
 let matSid = "iL4RdJqi2yK";
 let iframe;
-let wrapper;
 let addTagBtn;
 let tag;
 let table_container;
@@ -16,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     importBtn = document.querySelector('.import_tags');
     exportBtn = document.querySelector('.export_tags');
     removeBtn = document.querySelector('.remove_tags');
-    sidSelector = document.querySelector('#sid-input');
+    sidSelector = document.getElementById('sid-input');
     table_container = document.querySelector(".scrollable");
     iframe.setAttribute('src', `${matSpace}${matSid}${params}`);
     iframe.addEventListener('load', showcaseLoader, true);
@@ -138,6 +137,7 @@ function loadedShowcaseHandler(mpSdk){
     });
 
     addTagBtn.addEventListener('click', () => {
+        window.focus();
         if(!addingTag && !tag){
             addingTag = true;
             mpSdk.Mattertag.add([{
@@ -149,7 +149,7 @@ function loadedShowcaseHandler(mpSdk){
             }])
             .then((sid) => {
                 tag = sid[0];
-                return mpSdk.Mattertag.getData()
+                return mpSdk.Mattertag.getData();
             })
             .then( (collection) => {
                 const t_sid = collection.find( elem => elem.sid === tag);
@@ -287,7 +287,7 @@ function loadedShowcaseHandler(mpSdk){
         change.value = desc;
         ele.replaceWith(change);
         change.focus();
-        change.addEventListener('blur', () => {
+        change.addEventListener('blur', (e) => {
             clickAway(change, tagId);
         });
         change.addEventListener('keydown', (e) => {
