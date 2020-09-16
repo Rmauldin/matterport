@@ -6,11 +6,14 @@ const matSpace = "https://my.matterport.com/show/?m=";
 let matSid = "iL4RdJqi2yK";
 let iframe;
 let addTagBtn;
+let container;
 let tag;
 let table_container;
+const isFirefox = navigator.userAgent.indexOf("Firefox") > -1;
 
 document.addEventListener("DOMContentLoaded", () => {
     iframe = document.querySelector('.showcase');
+    container = document.querySelector('.showcase_container');
     addTagBtn = document.querySelector('.add_tag');
     importBtn = document.querySelector('.import_tags');
     exportBtn = document.querySelector('.export_tags');
@@ -26,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if(e.key === "Enter"){
             matSid = sidSelector.value;
             iframe.setAttribute('src', `${matSpace}${matSid}${params}`);
-            iframe.addEventListener('load', showcaseLoader, true);
         }
     });
 })
@@ -107,37 +109,75 @@ function loadedShowcaseHandler(mpSdk){
         movingTag = false;
     }
 
-    const eventListener = window.addEventListener('blur', function() {
-        if (document.activeElement === iframe) {
-            placeTag(); //function you want to call on click
-            setTimeout(function(){ window.focus(); }, 0);
+    if(!isFirefox){
+        focusDetect();
+    }
+
+    function focusDetect(){
+        const eventListener = window.addEventListener('blur', function() {
+            if (document.activeElement === iframe) {
+                placeTag(); //function you want to call on click
+                setTimeout(function(){ window.focus(); }, 0);
+            }
+            window.removeEventListener('blur', eventListener );
+        });
+    }
+
+    function overlayDetect(){
+        if(tag){
+            const overlay = document.createElement('div');
+            overlay.setAttribute('class', 'click-overlay');
+            overlay.addEventListener('mousemove', e => {
+                mpSdk.Renderer.getWorldPositionData({
+                    x: e.clientX - 30,
+                    y: e.clientY - 5
+                })
+                .then(data =>{
+                    updateTagPos(data.position); 
+                })
+                .catch(e => {
+                    console.error(e);
+                    placeTag();
+                });
+                
+            });
+            overlay.addEventListener('click', e => {
+                placeTag();
+                overlay.remove();
+            });
+            container.insertAdjacentElement('beforeend', overlay);
         }
-        window.removeEventListener('blur', eventListener );
-    });
+    }
+
+    function updateTagPos(newPos, newNorm=undefined, scale=undefined){
+        if(!newPos) return;
+        if(!scale) scale = .33;
+        if(!newNorm) newNorm = {x: 0, y: 1, z: 0};
+
+        mpSdk.Mattertag.editPosition(tag, {
+            anchorPosition: newPos,
+            stemVector: {
+                x: scale * newNorm.x,
+                y: scale * newNorm.y,
+                z: scale * newNorm.z,
+            }
+        })
+        .catch(e =>{
+            console.error(e);
+            tag = null;
+            movingTag = false;
+        });
+    }
 
     mpSdk.Pointer.intersection.subscribe(intersectionData => {
         if(tag && !movingTag){
             if(intersectionData.object === 'intersectedobject.model' || intersectionData.object === 'intersectedobject.sweep'){
-                let scale = .33;
-                mpSdk.Mattertag.editPosition(tag, {
-                    anchorPosition: intersectionData.position,
-                    stemVector: {
-                        x: scale * intersectionData.normal.x,
-                        y: scale * intersectionData.normal.y,
-                        z: scale * intersectionData.normal.z,
-                    }
-                })
-                .catch(e =>{
-                    console.error(e);
-                    tag = null;
-                    movingTag = false;
-                });
+                updateTagPos(intersectionData.position, intersectionData.normal);
             }
         }
     });
 
     addTagBtn.addEventListener('click', () => {
-        window.focus();
         if(!addingTag && !tag){
             addingTag = true;
             mpSdk.Mattertag.add([{
@@ -156,6 +196,9 @@ function loadedShowcaseHandler(mpSdk){
                 const row = addToTable(t_sid);
                 addTagListeners(row);
                 addingTag = false;
+            })
+            .then(() => {
+                if(isFirefox) overlayDetect();
             })
             .catch( (e) => {
                 console.error(e);

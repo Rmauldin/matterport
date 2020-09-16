@@ -169,8 +169,10 @@ button:hover{
     min-height: min-content;
 }
 
-#warning{
-    margin: 10px;
-    font-style: italic;
-    color: rgb(80, 3, 3);
+.click-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    z-index: 1;
 }
