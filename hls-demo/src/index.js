@@ -9,7 +9,7 @@ import { canvasBorderType, makeCanvasBorder } from '../sdk-components/CanvasBord
 import { canvasTextType, makeCanvasText } from '../sdk-components/CanvasText.js';
 import { canvasImageType, makeCanvasImage } from '../sdk-components/CanvasImage.js';
 
-const sdkKey = '2d4dfb9fd6414902b663c25a6c767cfa';
+const sdkKey = '';
 const sid = 'j4RZx7ZGM6T';
 const params = '&play=1&qs=1&sr=2.77,1.27&ss=57';
 let iframe;
