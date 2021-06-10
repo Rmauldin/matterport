@@ -22,7 +22,7 @@
     "webpack": "^4.44.1"
   },
   "config": {
-    "bundle_version": "3.1.6.1-15-ged398ca2e"
+    "bundle_version": "3.1.41.5-19-g5133fdd3e"
   },
   "devDependencies": {
     "webpack-cli": "^3.3.12"

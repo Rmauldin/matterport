@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function showcaseLoader(){
     let sdk;
     try{
-        sdk = await iframe.contentWindow.MP_SDK.connect(iframe, sdkKey, '3.4');
+        sdk = await iframe.contentWindow.MP_SDK.connect(iframe, sdkKey, '3.10');
     }catch(e){
         console.warn("Unable to connect: " + e);
         return;
