@@ -1,0 +1,13 @@
+{
+  "name": "industrial-quiz",
+  "version": "1.0.0",
+  "description": "Matterport SDK quiz example for facilities management",
+  "main": "app.js",
+  "author": "Ryan Mauldin, Matterport",
+  "license": "MIT",
+  "scripts": {
+    "compile": "webpack --mode=production",
+    "start": "webpack serve --mode=development",
+    "clean": "rm -rf dist/"
+  }
+}

@@ -1,0 +1,262 @@
+[
+    {
+        "number": 1,
+        "tagSid": "xD4AdwnwTKG",
+        "prompt": "What is a job hazard analysis?",
+        "answer": 1,
+        "source": "Participant Manual Page 11",
+        "options": [
+            "A tallying of all the hazards found on the job",
+            "A technique that focuses on job tasks as a way to identify and correct hazards",
+            "A technique for analyzing job hazards and assigning them to appropriate categories",
+            "A technique for evaluating employees on the job to make sure they are working"
+        ]
+    },
+    {
+        "number": 2,
+        "tagSid": "e6Nkfzwwrb2",
+        "prompt": "When considering controls that protect a worker from on-the-job hazards, which type of control is the most important?",
+        "answer": 0,
+        "source": "Participant Manual Page 12",
+        "options": [
+            "Engineering controls",
+            "Administrative controls",
+            "Training controls",
+            "Personal protective equipment"
+        ]
+    },
+    {
+        "number": 3,
+        "tagSid": "VlrLkW9suxt",
+        "prompt": "Employees who work on scaffolds must be protected from falling if the level of the scaffold is feet above the level below it.",
+        "answer": 1,
+        "source": "OSHA 29CFR 1926.451(g)(1)",
+        "options": [
+            5,
+            10,
+            15,
+            250
+        ]
+    },
+    {
+        "number": 4,
+        "tagSid": "GRhk003LaF7",
+        "prompt": "In a personal fall arrest system, lanyards and vertical lifelines must have a minimum  breaking strength of:",
+        "answer": 2,
+        "source": "OSHA 29CFR 1926.502(d)(9)",
+        "options": [
+            "2,000 pounds",
+            "3,500 pounds",
+            "5,000 pounds",
+            "6,500 pounds"
+        ]
+    },
+    {
+        "number": 5,
+        "tagSid": "rIriFrvmID5",
+        "prompt": "Personal fall arrest systems, when stopping a fall, must be rigged so that no employee can free fall more than feet, nor contact any lower level.",
+        "answer": 0,
+        "source": "OSHA 29CFR 1926.502(d)(16)(iii)",
+        "options": [
+            6,
+            8,
+            10,
+            12
+        ]
+    },
+    {
+        "number": 6,
+        "tagSid": "Ia903uWSpnO",
+        "prompt": "When fall arrest equipment is used, employers must assure that:",
+        "answer": 3,
+        "source": "OSHA29CFR 1926.502(d)(16)",
+        "options": [
+            "Users have calculated total fall distance.",
+            "All equipment is properly inspected before each use.",
+            "A rescue plan is in place to rescue a fallen employee.",
+            "All of the above."
+        ]
+    },
+    {
+        "number": 7,
+        "tagSid": "kfVNrdvbjDv",
+        "prompt": "When is it necessary to use lockout/tagout procedures to prevent electrical injuries?",
+        "answer": 3,
+        "source": "OSHA 29CFR 1910.147(a)(1)(i)",
+        "options": [
+            "When anyone is working around electrical equipment",
+            "When anyone is working on equipment that has multiple energy sources",
+            "When two or more employees are performing maintenance on the same electrical equipment",
+            "When there is potential for an unexpected energization of equipment that could  cause injury to an employee"
+        ]
+    },
+    {
+        "number": 8,
+        "tagSid": "6rqihQktVg4",
+        "prompt": "Ground Fault Circuit Interrupters (GFCI) are required by the National Electrical Code:",
+        "answer": 3,
+        "source": "OSHA 29CFR 1926.404(b)(1)",
+        "options": [
+            "When there are wet conditions.",
+            "On all temporary power circuits.",
+            "On portable generators over 5,000 watts.",
+            "All of the above."
+        ]
+    },
+    {
+        "number": 9,
+        "tagSid": "dD0ffvhNJ0F",
+        "prompt": "Who should be given access to electrical installations that are locked in a vault, room,  closet or fenced area?",
+        "answer": 1,
+        "source": "OSHA 29CFR 1926.403(j)(2)",
+        "options": [
+            "A supervisor only",
+            "A qualified person only",
+            "Anyone with a legitimate reason for entering",
+            "Anyone who needs to work on the installation"
+        ]
+    },
+    {
+        "number": 10,
+        "tagSid": "2suVezoL8OR",
+        "prompt": "When may guards be removed from powered equipment?",
+        "answer": 2,
+        "source": "OSHA 29CFR 1910.147(a)(2)(ii)(A)",
+        "options": [
+            "When proper PPE is used",
+            "When something is stuck in it",
+            "When the equipment is off and locked out",
+            "All of the above"
+        ]
+    },
+    {
+        "number": 11,
+        "tagSid": "5Z1JRVInRZY",
+        "prompt": "Equipment such as cranes, forklifts, backhoes and scaffolding must maintain  at least a __________ foot minimum clearance from overhead power lines.",
+        "answer": 1,
+        "source": "OSHA 29CFR 1926.600(a)(6)",
+        "options": [
+            6,
+            10,
+            12,
+            20
+        ]
+    },
+    {
+        "number": 12,
+        "tagSid": "7dIGEf8ET0M",
+        "prompt": "A stairway, ladder, ramp or other safe means of egress must be located in trench excavations that are or more in depth.",
+        "answer": 2,
+        "source": "OSHA 29CFR 1926.651(c)(2)",
+        "options": [
+            "2 feet",
+            "3 feet",
+            "4 feet",
+            "5 feet"
+        ]
+    },
+    {
+        "number": 13,
+        "tagSid": "bQP0gAOyjpG",
+        "prompt": "How far back from an excavation must the spoils be?",
+        "answer": 0,
+        "source": "OSHA 29CFR 1926.651(j)(2)",
+        "options": [
+            "2 feet",
+            "6 feet",
+            "10 feet",
+            "12 feet"
+        ]
+    },
+    {
+        "number": 14,
+        "tagSid": "eJnWR72FY9Z",
+        "prompt": "Excavations over 6 feet deep and not obviously visible must be, at minimum:",
+        "answer": 0,
+        "source": "OSHA 29CFR 1926.501(b)(7)(i)",
+        "options": [
+            "Barricaded or marked.",
+            "Protected by guardrails.",
+            "Covered with traffic plates.",
+            "No protection is required."
+        ]
+    },
+    {
+        "number": 15,
+        "tagSid": "umU0exIZt04",
+        "prompt": "How often should vehicles being used at worksites be inspected?",
+        "answer": 3,
+        "source": "OSHA 29CFR 1926.601(b)(14)",
+        "options": [
+            "Annually",
+            "Monthly",
+            "Weekly",
+            "Daily, at the beginning of each shift"
+        ]
+    },
+    {
+        "number": 16,
+        "tagSid": "oD8pOG88PH1",
+        "prompt": "To prevent worker run-over accidents, which of the following should be used?",
+        "answer": 3,
+        "source": "OSHA 29CFR 1926.602(a)(9)",
+        "options": [
+            "Back-up alarms",
+            "Spotters for equipment",
+            "High visibility clothing",
+            "All of the above"
+        ]
+    },
+    {
+        "number": 17,
+        "tagSid": "mBMW94eUOMg",
+        "prompt": "Employees who direct or signal crane movements must be:",
+        "answer": 1,
+        "source": "OSHA 29CFR 1926.1428",
+        "options": [
+            "Certified.",
+            "Qualified by testing.",
+            "Wearing a colored vest.",
+            "Able to also operate the crane."
+        ]
+    },
+    {
+        "number": 18,
+        "tagSid": "IKqsoK4h4zC",
+        "prompt": "Employees working from articulating boom lifts must:",
+        "answer": 3,
+        "source": "OSHA 29CFR 1926.453",
+        "options": [
+            "Be tied off to the lift.",
+            "Be trained to operate the lift.",
+            "Keep their feet on the floor of the lift.",
+            "All of the above."
+        ]
+    },
+    {
+        "number": 19,
+        "tagSid": "ddBDFkSnqI3",
+        "prompt": "Which of the following is a sign of heat stress?",
+        "answer": 3,
+        "source": "OSHA Heat Stress Quick Card (on Tools and Resources CD)",
+        "options": [
+            "Excessive talking",
+            "Excessive giggling",
+            "Irritability or confusion",
+            "Orange skin under fingernails"
+        ]
+    },
+    {
+        "number": 20,
+        "tagSid": "4sZixDBCTva",
+        "prompt": "Which of the following is a sign of cold stress?",
+        "answer": 2,
+        "source": "OSHA Cold Stress Quick Card (on Tools and Resources CD)",
+        "options": [
+            "Fast talking",
+            "Loud talking",
+            "Dilated pupils",
+            "Uncharacteristic comments"
+        ]
+    }
+]
