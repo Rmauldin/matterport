@@ -26,7 +26,7 @@ module.exports = {
   output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist/'),
-      publicPath: '/tag-placer/dist/',
+      publicPath: '/matterport/tag-placer/dist/',
       clean: true,
   },
   resolve: {
