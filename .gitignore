@@ -8,3 +8,4 @@ hls-demo/package-lock.json
 temp-serve.js
 tag-placer/node_modules
 tag-placer/static/bundle/
+tag-placer/yarn.lock
