@@ -1,0 +1,22 @@
+{
+  "name": "tag-placer",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve",
+    "get-bundle": "curl https://static.matterport.com/showcase-sdk/bundle/$npm_package_config_bundle_version/showcase-bundle.zip -o static/bundle.zip && unzip -o static/bundle.zip -d static/bundle"
+  },
+  "config": {
+    "bundle_version": "3.1.46.18-2-g2386aca5f"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.3.2",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.3.5",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

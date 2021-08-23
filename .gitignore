@@ -4,4 +4,7 @@ hls-demo/bundle.zip
 hls-demo/node_modules
 hls-demo/package-lock.json
 */.DS_STORE
+.DS_STORE
 temp-serve.js
+tag-placer/node_modules
+tag-placer/static/bundle/
