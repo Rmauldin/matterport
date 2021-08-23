@@ -14,5 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const handler = new ShowcaseHandler(key);
   iframe.addEventListener('load', handler);
   const queryString = Object.keys(params).map((key) => key + '=' + params[key]).join('&');
-  iframe.src = `/static/bundle/showcase.html?${queryString}`;
+  iframe.src = `/matterport/tag-placer/dist/static/bundle/showcase.html?${queryString}`;
 });
