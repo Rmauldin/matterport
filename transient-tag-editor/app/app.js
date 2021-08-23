@@ -104,7 +104,7 @@ function loadedShowcaseHandler(mpSdk){
     .catch(console.error);
 
     function placeTag(){
-        if(tag) mpSdk.Mattertag.navigateToTag(tag, mpSdk.Mattertag.Transition.INSTANT);
+        if(tag) mpSdk.Mattertag.navigateToTag(tag, mpSdk.Mattertag.Transition.FLY);
         tag = null;
         movingTag = false;
     }
