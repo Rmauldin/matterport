@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
       index: './src/index.ts',
   },
@@ -27,7 +27,7 @@ module.exports = {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist/'),
       publicPath: '/matterport/tag-placer/dist/',
-      clean: true,
+      clean: false,
   },
   resolve: {
       extensions: [ '.tsx', '.ts', '.js', '.json', ],
